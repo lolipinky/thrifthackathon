@@ -4,14 +4,14 @@ import mongoose from 'mongoose'
 const createAccSchema = new mongoose.Schema({
     fullName:{
         type: String,
-        required: [ 'field is required'],
+        required: [ true, 'field is required'],
         trim:true,
         minLength:[3, 'field must be at least 3 characters']
 
     },
     email:{
         type: String,
-        required: true,
+        required: [true,"field is required"],
         trim:true,
         unique:true,
         minLength:[10, 'field must be at least 10 characters'],
@@ -20,7 +20,7 @@ const createAccSchema = new mongoose.Schema({
     },
     password:{
         type:String,
-        required: true,
+        required:[true, "field is required"],
         minLength: [5, "Password must not be less than 5 characters"]
 
     }

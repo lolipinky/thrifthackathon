@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { newUser } from "../contollers/createAccCon.js"
+import { newUser, signIn } from "../contollers/createAccCon.js";
 
-const createRouter = Router()
+const createRouter = Router();
 
-createRouter.post("/createAcc", newUser)
+createRouter.post("/createAcc", newUser);
+createRouter.post("/signin", signIn);
 
-export default createRouter
+export default createRouter;
