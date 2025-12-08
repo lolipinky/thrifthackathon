@@ -9,6 +9,12 @@ const createAccSchema = new mongoose.Schema({
         minLength:[3, 'field must be at least 3 characters']
 
     },
+    phoneNumber:{
+         type: Number,
+        required:[ true, "Phone number is required"],
+        trim: true,
+        match: [/^\+[1-9]\d{1,14}$/, "Phone number is invalid"],
+    },
     email:{
         type: String,
         required: [true,"field is required"],
