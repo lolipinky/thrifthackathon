@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { newUser, signin } from "../contollers/soloAccCon.js";
+import { newUser, signin } from "../controllers/soloAccCon.js";
 
 const createRouter = Router();
 
