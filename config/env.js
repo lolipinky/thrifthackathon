@@ -6,7 +6,6 @@ export const {
     MONGODB_URL,
     PORT,
     JWT_EXPIRES_IN,
-    JWT_SECRET
-
-
+    JWT_SECRET,
+    PAYSTACK_SECRET
 }=process.env

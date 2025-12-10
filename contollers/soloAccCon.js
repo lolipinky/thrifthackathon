@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { JWT_EXPIRES_IN, JWT_SECRET } from "../config/env.js";
 import createUser from "../models/createAcc.js";
 
-// ===================== SIGN UP =====================
+
 export const newUser = async (req, res) => {
   try {
     const { fullName, phoneNumber, email, password } = req.body;
@@ -55,7 +55,7 @@ export const newUser = async (req, res) => {
   }
 };
 
-// ===================== SIGN IN =====================
+
 export const signin = async (req, res) => {
   try {
     const { email, password } = req.body;
