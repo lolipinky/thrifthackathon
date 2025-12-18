@@ -9,6 +9,7 @@ import checkoutRouter from "./routes/checkout.js";
 import cookieParser from 'cookie-parser';
 import cors from "cors";
 import categoryRouter from "./routes/category.route.js";
+import productRouter from "./routes/product.route.js";
 
 const app = express();
 
@@ -26,7 +27,8 @@ app.use(cors({
 
 app.use("/api/v1/account", createRouter);
 app.use("/api/v1/checkout", checkoutRouter);
-app.use("/api/v1/category", categoryRouter)
+app.use("/api/v1/category", categoryRouter);
+app.use("/api/v1/products", productRouter)
 
 app.listen(PORT, () => {
   connectDb();

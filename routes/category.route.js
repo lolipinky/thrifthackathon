@@ -6,4 +6,4 @@ const categoryRouter = Router()
 categoryRouter.post('/', createCategory)
 categoryRouter.get('/', getCategories)
 
-export default categoryRouter
+export default categoryRouter 
