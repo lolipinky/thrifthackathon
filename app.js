@@ -8,6 +8,7 @@ import createRouter from './routes/createAccRoute.js';
 import checkoutRouter from "./routes/checkout.js";
 import cookieParser from 'cookie-parser';
 import cors from "cors";
+import categoryRouter from "./routes/category.route.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(cors({
 
 app.use("/api/v1/account", createRouter);
 app.use("/api/v1/checkout", checkoutRouter);
+app.use("api/v1/category", categoryRouter)
 
 app.listen(PORT, () => {
   connectDb();
