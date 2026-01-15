@@ -7,3 +7,10 @@
   "rating": 5,
   "stock": 5
 }
+
+user for testing purpose
+ "email":"ololadesam@gmail.com",
+ "password":"lola123"
+
+ "userId": "6968ca0dc46557a8865c7613",
+   "groupId": "6968e138f38e4504e88758f5"

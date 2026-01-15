@@ -7,6 +7,8 @@ const paymentSchema = new mongoose.Schema(
     currency: { type: String, default: "NGN" },
     status: { type: String, required: true }, // success, failed, abandoned
     email: { type: String, required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "createUser", required: true },
+    group: { type: mongoose.Schema.Types.ObjectId, ref: "Group", required: true },
     metadata: { type: Object },
     gatewayResponse: { type: String },
     channel: { type: String }, // card, bank, transfer, etc.
@@ -14,4 +16,5 @@ const paymentSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Payment", paymentSchema);
+const Payment = mongoose.model("Payment", paymentSchema);
+export default Payment

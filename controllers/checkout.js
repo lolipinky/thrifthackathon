@@ -36,10 +36,11 @@ export const initiateCheckout = async (req, res) => {
 
 
 export const verifyStatus = async (req, res) => {
-  const { reference } = req.query;
+  const { reference, userId, groupId } = req.query;
 
-  if (!reference) {
-    return res.status(400).send("Please pass in your reference number");
+  
+  if (!reference || !userId || !groupId) {
+    return res.status(400).send("Reference, userId, and groupId are required");
   }
 
   try {
@@ -60,11 +61,21 @@ export const verifyStatus = async (req, res) => {
       return res.status(400).send("Payment not successful");
     }
 
+
+     const existingPayment = await Payment.findOne({ reference: data.reference });
+if (existingPayment) {
+  return res.status(200).json({
+    message: "Payment already verified",
+    payment: existingPayment
+  });
+}
     // SAVE TO DATABASE
     await Payment.create({
       reference: data.reference,
       amount: data.amount / 100,
       email: data.customer.email,
+      user: userId,
+      group: groupId,
       status: data.status,
       paid_at: data.paid_at,
       channel: data.channel,
@@ -72,10 +83,15 @@ export const verifyStatus = async (req, res) => {
       metadata: data.metadata,
     });
 
+    
+
     return res.status(200).json(data);
 
   } catch (error) {
     console.log(error.response?.data || error.message);
-    return res.status(500).send("Something went wrong");
+    return res.status(500).json({
+      message: "something went wrong",
+      error: error.response?.data
+    })
   }
 };

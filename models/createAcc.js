@@ -28,8 +28,12 @@ const createAccSchema = new mongoose.Schema({
         type:String,
         required:[true, "field is required"],
         minLength: [5, "Password must not be less than 5 characters"]
-
-    }
+    },
+    role: {
+          type: String,
+          enum: ["user", "admin"],
+          default: "user",
+        }
 },
 {timestamps:true}
 )

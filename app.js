@@ -10,6 +10,9 @@ import cookieParser from 'cookie-parser';
 import cors from "cors";
 import categoryRouter from "./routes/category.route.js";
 import productRouter from "./routes/product.route.js";
+import wishlistRouter from "./routes/wishlist.route.js";
+import adminRouter from "./routes/admin.route.js";
+import groupRouter from "./routes/group.route.js";
 
 const app = express();
 
@@ -28,7 +31,10 @@ app.use(cors({
 app.use("/api/v1/account", createRouter);
 app.use("/api/v1/checkout", checkoutRouter);
 app.use("/api/v1/category", categoryRouter);
-app.use("/api/v1/products", productRouter)
+app.use("/api/v1/products", productRouter);
+app.use("/api/v1/wishlist", wishlistRouter)
+app.use("/api/v1/admin", adminRouter);
+app.use("/api/v1/group", groupRouter)
 
 app.listen(PORT, () => {
   connectDb();
