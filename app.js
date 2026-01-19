@@ -13,6 +13,7 @@ import productRouter from "./routes/product.route.js";
 import wishlistRouter from "./routes/wishlist.route.js";
 import adminRouter from "./routes/admin.route.js";
 import groupRouter from "./routes/group.route.js";
+import contributionRouter from "./routes/contribution.route.js";
 
 const app = express();
 
@@ -34,7 +35,8 @@ app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/wishlist", wishlistRouter)
 app.use("/api/v1/admin", adminRouter);
-app.use("/api/v1/group", groupRouter)
+app.use("/api/v1/group", groupRouter);
+app.use("/api/v1/contribution", contributionRouter)
 
 app.listen(PORT, () => {
   connectDb();

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { PAYSTACK_SECRET } from "../config/env.js";
-import Payment from "../models/payment.model.js"
+import Payment from "../models/payment.model.js";
+import Contribution from "../models/contribution.model.js";
 
 export const initiateCheckout = async (req, res) => {
   const DECRate = 500;
@@ -83,9 +84,21 @@ if (existingPayment) {
       metadata: data.metadata,
     });
 
-    
-
+    await Contribution.findOneAndUpdate(
+  {
+    user: userId,
+    group: groupId,
+    cycleMonth,
+    status: "pending",
+  },
+  {
+    status: "paid",
+    payment: Payment._id,
+  }
+);
     return res.status(200).json(data);
+
+    
 
   } catch (error) {
     console.log(error.response?.data || error.message);
