@@ -1,6 +1,7 @@
 import createUser from "../models/createAcc.js";
 import Group from "../models/group.model.js";
 import Payment from "../models/payment.model.js";
+import Order from "../models/order.model.js";
 import mongoose from "mongoose";
 
 export const getDashboardStats = async (req, res) => {
@@ -70,14 +71,13 @@ export const getAllOrders = async (req, res) => {
     const query = {};
     if (status) query.status = status;
 
-    const orders = await Payment.find(query)
+    const orders = await Order.find(query)
       .populate("user", "fullName email phoneNumber")
-      .populate("group", "name amountPerMonth")
       .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
       .limit(Number(limit));
 
-    const total = await Payment.countDocuments(query);
+    const total = await Order.countDocuments(query);
 
     return res.json({
       total,
@@ -90,6 +90,7 @@ export const getAllOrders = async (req, res) => {
     return res.status(500).json({ message: "Failed to fetch orders" });
   }
 };
+
 
 // Get contribution summary for all groups
 export const getGroupContributions = async (req, res) => {

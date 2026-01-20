@@ -14,6 +14,11 @@ import wishlistRouter from "./routes/wishlist.route.js";
 import adminRouter from "./routes/admin.route.js";
 import groupRouter from "./routes/group.route.js";
 import contributionRouter from "./routes/contribution.route.js";
+import { startContributionReminder } from "./services/contribution.reminder.js";
+import webhookRouter from "./routes/webhook.route.js"
+import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./docs/swagger.js";
+import orderRouter from "./routes/order.route.js";
 
 const app = express();
 
@@ -28,7 +33,6 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-
 app.use("/api/v1/account", createRouter);
 app.use("/api/v1/checkout", checkoutRouter);
 app.use("/api/v1/category", categoryRouter);
@@ -36,11 +40,19 @@ app.use("/api/v1/products", productRouter);
 app.use("/api/v1/wishlist", wishlistRouter)
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/group", groupRouter);
+app.use("/api/v1/orders", orderRouter)
 app.use("/api/v1/contribution", contributionRouter)
+app.use(
+  "/api/v1/webhook",
+  express.raw({ type: "application/json" }),
+  webhookRouter
+);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(PORT, () => {
   connectDb();
-  console.log("server is running on PORT", PORT);
+  console.log("server is running on PORT");
+  startContributionReminder();
 });
 
 

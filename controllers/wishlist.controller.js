@@ -4,12 +4,16 @@ import Product from "../models/product.model.js";
 // Add product to wishlist
 export const addToWishlist = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId =  req.user?._id;
     const { productId } = req.body;
 
     const productExists = await Product.findById(productId);
     if (!productExists) {
       return res.status(404).json({ message: "Product not found" });
+    }
+
+    if (!productId) {
+      return res.status(400).json({ message: "ProductId is required" });
     }
 
     let wishlist = await Wishlist.findOne({ user: userId });
