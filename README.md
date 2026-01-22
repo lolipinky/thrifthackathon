@@ -82,7 +82,7 @@ thriftng-api/
 
 ---
 
-✨ Features
+## ✨ Features
 
 🔐 Authentication & Authorization
 
