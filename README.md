@@ -40,55 +40,56 @@ ThriftNG is a comprehensive backend API powering a dual-purpose platform combini
 
 ## 🏗 Architecture
 
+```md
+```text
 thriftng-api/
 ├── 📁 config/
-│ └── env.js
+│   └── env.js
 ├── 📁 controllers/
-│ ├── admin.controller.js
-│ ├── category.controller.js
-│ ├── checkout.js
-│ ├── contribution.controller.js
-│ ├── group.controller.js
-│ ├── order.controller.js
-│ ├── product.controller.js
-│ ├── soloAccCon.js
-│ ├── webhook.controller.js
-│ └── wishlist.controller.js
+│   ├── admin.controller.js
+│   ├── category.controller.js
+│   ├── checkout.js
+│   ├── contribution.controller.js
+│   ├── group.controller.js
+│   ├── order.controller.js
+│   ├── product.controller.js
+│   ├── soloAccCon.js
+│   ├── webhook.controller.js
+│   └── wishlist.controller.js
 ├── 📁 docs/
-│ └── swagger.js
+│   └── swagger.js
 ├── 📁 middleware/
-│ ├── auth.middleware.js
-│ └── admin.middleware.js
+│   ├── auth.middleware.js
+│   └── admin.middleware.js
 ├── 📁 models/
-│ ├── category.model.js
-│ ├── contribution.model.js
-│ ├── createAcc.js
-│ ├── group.model.js
-│ ├── order.model.js
-│ ├── payment.model.js
-│ ├── product.model.js
-│ └── wishlist.model.js
+│   ├── category.model.js
+│   ├── contribution.model.js
+│   ├── createAcc.js
+│   ├── group.model.js
+│   ├── order.model.js
+│   ├── payment.model.js
+│   ├── product.model.js
+│   └── wishlist.model.js
 ├── 📁 routes/
-│ ├── admin.route.js
-│ ├── category.route.js
-│ ├── checkout.js
-│ ├── contribution.route.js
-│ ├── createAccRoute.js
-│ ├── group.route.js
-│ ├── order.route.js
-│ ├── product.route.js
-│ ├── webhook.route.js
-│ └── wishlist.route.js
+│   ├── admin.route.js
+│   ├── category.route.js
+│   ├── checkout.js
+│   ├── contribution.route.js
+│   ├── createAccRoute.js
+│   ├── group.route.js
+│   ├── order.route.js
+│   ├── product.route.js
+│   ├── webhook.route.js
+│   └── wishlist.route.js
 ├── 📁 services/
-│ └── contribution.reminder.js
+│   └── contribution.reminder.js
 ├── 📁 database/
-│ └── mongodb.js
+│   └── mongodb.js
 ├── app.js
 ├── package.json
 └── .env.example
+yaml
 
-markdown
-Copy code
 
 ---
 
