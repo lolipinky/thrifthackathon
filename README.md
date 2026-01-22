@@ -79,115 +79,82 @@ thriftng-api/
 ├── app.js
 ├── package.json
 └── .env.example
+
+---
 ✨ Features
+
 🔐 Authentication & Authorization
 
-JWT-based authentication with bcrypt password hashing
-
-Role-based access control (User, Admin)
-
-Protected routes with middleware
-
-Session management
+- JWT-based authentication with bcrypt password hashing
+- Role-based access control (User, Admin)
+- Protected routes with middleware
+- Session management
 
 🛒 E-commerce Marketplace
 
-Product catalog with categories
-
-Shopping cart functionality
-
-Wishlist management
-
-Order processing system
-
-Inventory management
-
-Product search and filtering
+- Product catalog with categories
+- Shopping cart functionality
+- Wishlist management
+- Order processing system
+- Inventory management
+- Product search and filtering
 
 👥 Thrift Group Management
 
-Create and manage thrift groups (Ajo/Esusu)
-
-Member management (add/remove)
-
-Monthly contribution tracking
-
-Automated contribution reminders
-
-Payment tracking per group
-
-Contribution status monitoring
+- Create and manage thrift groups 
+- Member management (add/remove)
+- Monthly contribution tracking
+- Automated contribution reminders
+- Payment tracking per group
+- Contribution status monitoring
 
 💳 Payment System
 
-Paystack payment gateway integration
-
-One-time payments for marketplace
-
-Recurring contributions for thrift groups
-
-Webhook support for real-time updates
-
-Payment verification and reconciliation
-
-Multi-currency support (NGN default)
+- Paystack payment gateway integration
+- One-time payments for marketplace
+- Recurring contributions for thrift groups
+- Webhook support for real-time updates
+- Payment verification and reconciliation
+- Multi-currency support (NGN default)
 
 📊 Admin Dashboard
 
-Real-time analytics and statistics
-
-User management
-
-Order management
-
-Payment tracking
-
-Group contribution monitoring
-
-Revenue reports
+- Real-time analytics and statistics
+- User management
+- Order management
+- Payment tracking
+- Group contribution monitoring
+- Revenue reports
 
 ⚙️ Advanced Features
 
-Automated cron jobs for reminders
-
-Webhook verification and security
-
-CORS configuration with whitelisting
-
-Input validation and sanitization
-
-Comprehensive error handling
-
-Rate limiting (planned)
-
-API documentation with Swagger UI
+- Automated cron jobs for reminders
+- Webhook verification and security
+- CORS configuration with whitelisting
+- Input validation and sanitization
+- Comprehensive error handling
+- Rate limiting (planned)
+- API documentation with Swagger UI
+---
 
 🛠 Tech Stack
+
 Backend
-
-Node.js 20.x
-
-Express.js 5.x
-
+- Node.js 20.x
+- Express.js 5.x
 JavaScript ES6+
 
 Database
-
-MongoDB 7.x
-
-Mongoose 8.x
+- MongoDB 7.x
+- Mongoose 8.x
 
 Authentication & Security
-
-JWT (jsonwebtoken)
-
-bcryptjs
+- JWT (jsonwebtoken)
+- bcryptjs
 
 Payment Integration
-
-Paystack
-
-Axios
+- Paystack
+- Axios
 
 Development Tools
 
