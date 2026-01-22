@@ -81,6 +81,7 @@ thriftng-api/
 └── .env.example
 
 ---
+
 ✨ Features
 
 🔐 Authentication & Authorization
