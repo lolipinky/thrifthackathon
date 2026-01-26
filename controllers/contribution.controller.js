@@ -1,10 +1,10 @@
-import Contribution from "../models/contribution.model.js";
-import Group from "../models/group.model.js";
-
-// Generate monthly contributions for a group
 export const generateGroupContributions = async (req, res) => {
   try {
     const { groupId, cycleMonth } = req.body;
+
+    if (!groupId || !cycleMonth) {
+      return res.status(400).json({ message: "groupId and cycleMonth are required" });
+    }
 
     const group = await Group.findById(groupId).populate("members");
     if (!group) return res.status(404).json({ message: "Group not found" });

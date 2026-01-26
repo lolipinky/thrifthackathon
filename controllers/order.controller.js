@@ -10,7 +10,7 @@ export const createOrder = async (req, res) => {
     }
 
     const order = await Order.create({
-      user: req.user.userId, // from protect middleware
+      user: req.user._id,
       items,
       shippingAddress,
       paymentMethod,
@@ -19,7 +19,10 @@ export const createOrder = async (req, res) => {
 
     return res.status(201).json(order);
   } catch (error) {
-    return res.status(500).json({ message: "Failed to create order", error: error.message });
+    return res.status(500).json({
+      message: "Failed to create order",
+      error: error.message,
+    });
   }
 };
 
@@ -36,16 +39,19 @@ export const getAllOrders = async (req, res) => {
   }
 };
 
-// Get user orders
+// Get logged-in user's orders
 export const getUserOrders = async (req, res) => {
   try {
-    const orders = await Order.find({ user: req.user.userId })
+    const orders = await Order.find({ user: req.user._id })
       .populate("items.product", "name price")
       .sort({ createdAt: -1 });
 
     return res.status(200).json(orders);
   } catch (error) {
-    return res.status(500).json({ message: "Failed to fetch user orders", error: error.message });
+    return res.status(500).json({
+      message: "Failed to fetch user orders",
+      error: error.message,
+    });
   }
 };
 
