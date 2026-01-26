@@ -80,7 +80,6 @@ thriftng-api/
 ├── package.json
 └── .env.example
 
-
 ---
 
 ## ✨ Features
